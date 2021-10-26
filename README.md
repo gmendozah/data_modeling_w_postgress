@@ -26,7 +26,7 @@ The ETL Pipeline does the following things:</br>
 - Finally, loads the **songplays** table by joining **songs** and **artists** where the song (name and duration) and artist's name are the same in the **users** table. 
 
 ```sql
-SELECT s.song_id, a.artist_id FROM songs s JOIN artists a ON s.song_id = a.artist_id WHERE s.title = %s AND a.name = %s AND s.duration = %s;
+SELECT s.song_id, s.artist_id FROM songs s JOIN artists a ON a.artist_id = s.artist_id WHERE (s.title = %s AND a.name = %s AND s.duration = %s);
 ```
 
 # Files
